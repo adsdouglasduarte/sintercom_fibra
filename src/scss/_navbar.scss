@@ -1,0 +1,19 @@
+@use "variables" as v;
+.header__geral {
+  width: 100%;
+  background: linear-gradient(135deg, v.$primeira-cor, v.$segunda-cor);
+  color: v.$branco-color;
+  display: flex;
+  height: 90vh;
+  margin-top: 56px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.nav__geral {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
