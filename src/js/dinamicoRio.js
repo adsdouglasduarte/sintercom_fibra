@@ -1,10 +1,91 @@
+import logoOficial from "url:../assets/img/LOGO_SITE.png";
+import hero1 from "url:../assets/img/HERO-01.png";
+import hero2 from "url:../assets/img/HERO-02.png";
+import hero3 from "url:../assets/img/HERO-03.png";
+
+
 class TesteRio extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <!-- Navbar principal -->
       <nav class="nav__geral navbar navbar-expand-lg navbar-light bg-light px-3 fixed-top shadow-sm">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold text-primary" href="#">Sintercom RJ</a>
+          <a class="navbar-brand fw-bold text-primary d-flex align-items-center" href="#">
+              <img src="${logoOficial}" alt="Logo Sintercom" class="logo__img me-2" />
+              Rio de Janeiro
+            </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sobre</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="suporteDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Para Você
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="suporteDropdown">
+                  <li><a class="dropdown-item" href="#">Ineternet residencial</a></li>
+                  <li><a class="dropdown-item" href="#">Plano Móvel</a></li>
+                </ul>
+              </li>
+               <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="suporteDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Empresas
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="suporteDropdown">
+                  <li><a class="dropdown-item" href="#">Corporativo</a></li>
+                  <li><a class="dropdown-item" href="#">Link Dedicado</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="suporteDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Suporte
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="suporteDropdown">
+                  <li><a class="dropdown-item" href="#">Central do Assinante</a></li>
+                  <li><a class="dropdown-item" href="#">Fale com Theo</a></li>
+                  <li><a class="dropdown-item" href="#">Apps Tutorial</a></li>
+                  <li><a class="dropdown-item" href="#">Contato</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
           <div class="dropdown ms-auto">
             <button
               class="btn btn-outline-primary dropdown-toggle"
@@ -25,14 +106,69 @@ class TesteRio extends HTMLElement {
       </nav>
 
       <!-- Hero -->
-      <header class="header__geral d-flex align-items-center text-white" >
-        <div class="container text-center">
-          <h1 class="display-4 fw-bold">Seu Título Impressionante</h1>
-          <p class="lead mb-4">Uma descrição curta e envolvente do seu produto ou serviço.</p>
-          <a href="#" class="btn btn-light btn-lg me-2">Ação Principal</a>
-          <a href="#" class="btn btn-outline-light btn-lg">Ação Secundária</a>
+<header class="hero__carousel position-relative text-white">
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <picture>
+          <source media="(max-width: 768px)" srcset="${hero1}">
+          <img src="${hero1}" class="d-block w-100 hero__img" alt="Banner 1">
+        </picture>
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+          <h1 class="display-4 fw-bold">Conecte-se ao Futuro</h1>
+          <p class="lead mb-4">Internet rápida e estável para sua casa ou empresa.</p>
+          <div>
+            <a href="#" class="btn btn-light btn-lg me-2">Assine Agora</a>
+            <a href="#" class="btn btn-outline-light btn-lg">Saiba Mais</a>
+          </div>
         </div>
-      </header>
+      </div>
+
+      <div class="carousel-item">
+        <picture>
+          <source media="(max-width: 768px)" srcset="${hero2}">
+          <img src="${hero2}" class="d-block w-100 hero__img" alt="Banner 2">
+        </picture>
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+          <h1 class="display-4 fw-bold">Planos Sob Medida</h1>
+          <p class="lead mb-4">Escolha o plano perfeito para o seu estilo de vida.</p>
+          <div>
+            <a href="#" class="btn btn-light btn-lg me-2">Ver Planos</a>
+            <a href="#" class="btn btn-outline-light btn-lg">Contato</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <picture>
+          <source media="(max-width: 768px)" srcset="${hero3}">
+          <img src="${hero3}" class="d-block w-100 hero__img" alt="Banner 3">
+        </picture>
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+          <h1 class="display-4 fw-bold">Entretenimento Sem Limites</h1>
+          <p class="lead mb-4">Assista, jogue e navegue com qualidade máxima.</p>
+          <div>
+            <a href="#" class="btn btn-light btn-lg me-2">Experimente</a>
+            <a href="#" class="btn btn-outline-light btn-lg">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+</header>
+
 
       <!-- Conteúdo principal -->
       <main class="conteudo__geral--rio">
@@ -169,6 +305,36 @@ class TesteRio extends HTMLElement {
             </div>
           </div>
         </section>
+        <!--Seção do plano móvel apenas dois cards mostrando os dois planos: 15 Giga 39,90/mês e 40 Giga 59,90/mês-->
+        <section class="py-5 bg-light text-center">
+          <div class="container">
+            <h2>Planos Móveis</h2>
+            <p class="mb-4">Conecte-se em qualquer lugar com nossos planos móveis.</p>
+            <div class="row justify-content-center">
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">Plano 15 Giga</h5>
+                    <p class="card-text">Navegação rápida e eficiente.</p>
+                    <p class="card-text fw-bold">R$ 39,90/mês</p>
+                    <a href="#" class="btn btn-primary">Assinar Agora</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">Plano 40 Giga</h5>
+                    <p class="card-text">Mais dados para suas necessidades.</p>
+                    <p class="card-text fw-bold">R$ 59,90/mês</p>
+                    <a href="#" class="btn btn-primary">Assinar Agora</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!--Aqui sera a seção empresarial
         usuario verá um carousel com 3 banners
         com um leve overlay ao passar o mouse
@@ -178,7 +344,7 @@ class TesteRio extends HTMLElement {
           <div class="container">
             <h2>Planos Empresariais</h2>
             <p class="mb-4">Soluções personalizadas para o seu negócio.</p>
-            <div id="carouselEmpresarial" class="carousel slide mb-4" data-bs-ride="carousel">
+            <div id="carouselEmpresarial" class="carousel slide mb-4" data-bs-ride="carousel" >
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img src="https://placehold.co/600x400" class="d-block w-100" alt="Empresa 1">

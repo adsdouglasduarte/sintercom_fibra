@@ -1,0 +1,109 @@
+@use "variables" as v;
+
+.hero__carousel {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+
+  .hero__img {
+    height: 100vh;
+    object-fit: cover;
+    transition: transform 10s ease-in-out, filter 0.5s ease;
+  }
+
+  // Efeito fade
+  .carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .carousel-fade .carousel-item.active {
+    opacity: 1;
+  }
+
+  // Overlay escuro suave no fundo
+  .carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: background 0.5s ease;
+    z-index: 1;
+  }
+
+  // Centraliza o conteúdo
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 2px 8px v.$cor-sombra;
+    z-index: 5;
+    width: 90%;
+    max-width: 700px;
+    opacity: 0;
+    transform: translate(-50%, -40%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  // Quando o usuário passa o mouse no banner ativo
+  .carousel-item.active:hover::after {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .carousel-item.active:hover .carousel-caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: v.$cor-branco;
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: v.$cor-branco;
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .btn {
+    border-radius: 2rem;
+    box-shadow: 0 4px 10px v.$cor-sombra;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+
+    &:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  // Setas de navegação
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(1);
+  }
+
+  // Pequeno efeito de zoom no banner ativo
+  .carousel-item.active .hero__img {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__carousel .carousel-caption {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .hero__carousel .carousel-item::after {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
