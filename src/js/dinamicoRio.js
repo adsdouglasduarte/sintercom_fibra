@@ -2,7 +2,9 @@ import logoOficial from "url:../assets/img/LOGO_SITE.png";
 import hero1 from "url:../assets/img/HERO-01.png";
 import hero2 from "url:../assets/img/HERO-02.png";
 import hero3 from "url:../assets/img/HERO-03.png";
-
+import heromobile1 from "url:../assets/img/HERO-01-MOBILE.png";
+import heromobile2 from "url:../assets/img/HERO-02-MOBILE.png";
+import heromobile3 from "url:../assets/img/HERO-03-MOBILE.png";
 
 class TesteRio extends HTMLElement {
   connectedCallback() {
@@ -106,13 +108,13 @@ class TesteRio extends HTMLElement {
       </nav>
 
       <!-- Hero -->
-<header class="hero__carousel position-relative text-white">
+<header class="hero__carousel text-white">
   <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
 
       <div class="carousel-item active">
         <picture>
-          <source media="(max-width: 768px)" srcset="${hero1}">
+          <source media="(max-width: 768px)" srcset="${heromobile1}">
           <img src="${hero1}" class="d-block w-100 hero__img" alt="Banner 1">
         </picture>
         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
@@ -127,7 +129,7 @@ class TesteRio extends HTMLElement {
 
       <div class="carousel-item">
         <picture>
-          <source media="(max-width: 768px)" srcset="${hero2}">
+          <source media="(max-width: 768px)" srcset="${heromobile2}">
           <img src="${hero2}" class="d-block w-100 hero__img" alt="Banner 2">
         </picture>
         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
@@ -142,7 +144,7 @@ class TesteRio extends HTMLElement {
 
       <div class="carousel-item">
         <picture>
-          <source media="(max-width: 768px)" srcset="${hero3}">
+          <source media="(max-width: 768px)" srcset="${heromobile3}">
           <img src="${hero3}" class="d-block w-100 hero__img" alt="Banner 3">
         </picture>
         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
@@ -154,22 +156,30 @@ class TesteRio extends HTMLElement {
           </div>
         </div>
       </div>
-
-    </div>
-
-    <!-- Controles -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      </div>
+      
+      
+      <!-- Controles -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Próximo</span>
-    </button>
-  </div>
-</header>
-
-
+      </button>
+      </div>     
+      </header>
+      <!--action mobile display none inicial em desktop-->
+       <aside>
+        <div>
+          <a>
+            <h3 class="mb-2">Contratar agora!</h3>
+            <p class="mb-0">Fale conosco pelo WhatsApp</p>
+            <i class="bi bi-whatsapp bi-whatsapp--aside"></i>
+          </a>
+        </div>
+      </aside>
       <!-- Conteúdo principal -->
       <main class="conteudo__geral--rio">
       <!-- Seção de Planos Residenciais -->

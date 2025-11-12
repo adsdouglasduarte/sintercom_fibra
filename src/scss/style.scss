@@ -5,3 +5,14 @@
 @use "variables" as v;
 @use "navbar";
 @use "hero";
+@use "aside";
+
+body {
+  padding-top: 90px; // altura aproximada da navbar
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px; // um pouco menor no mobile
+  }
+}

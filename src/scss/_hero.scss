@@ -11,7 +11,7 @@
     transition: transform 10s ease-in-out, filter 0.5s ease;
   }
 
-  // Efeito fade
+  // Efeito fade entre os slides
   .carousel-fade .carousel-item {
     opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -21,7 +21,7 @@
     opacity: 1;
   }
 
-  // Overlay escuro suave no fundo
+  // Overlay base — leve no desktop
   .carousel-item::after {
     content: "";
     position: absolute;
@@ -31,22 +31,21 @@
     z-index: 1;
   }
 
-  // Centraliza o conteúdo
+  // Centraliza o conteúdo do hero
   .carousel-caption {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    text-shadow: 0 2px 8px v.$cor-sombra;
-    z-index: 5;
+    transform: translate(-50%, -40%);
     width: 90%;
     max-width: 700px;
+    text-shadow: 0 2px 8px v.$cor-sombra;
+    z-index: 5;
     opacity: 0;
-    transform: translate(-50%, -40%);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
 
-  // Quando o usuário passa o mouse no banner ativo
+  // Desktop: CTA aparece com hover no banner ativo
   .carousel-item.active:hover::after {
     background: rgba(0, 0, 0, 0.6);
   }
@@ -59,17 +58,11 @@
   h1 {
     font-size: 3rem;
     color: v.$cor-branco;
-    @media (max-width: 768px) {
-      font-size: 2rem;
-    }
   }
 
   p {
     font-size: 1.25rem;
     color: v.$cor-branco;
-    @media (max-width: 768px) {
-      font-size: 1rem;
-    }
   }
 
   .btn {
@@ -84,7 +77,7 @@
     }
   }
 
-  // Setas de navegação
+  // Setas de navegação (inversão de cor)
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     filter: invert(1);
@@ -96,14 +89,56 @@
   }
 }
 
+// -----------------------------
+// 📱 MOBILE FIRST ADJUSTMENTS
+// -----------------------------
 @media (max-width: 768px) {
-  .hero__carousel .carousel-caption {
-    opacity: 1 !important;
-    transform: translate(-50%, -50%) !important;
-  }
+  .hero__carousel {
+    height: 90vh; // evita corte em telas menores
+    margin-top: 35px;
+    margin-bottom: -52px;
+    z-index: 1100;
 
-  .hero__carousel .carousel-item::after {
-    background: rgba(0, 0, 0, 0.5);
+    .hero__img {
+      height: 100%;
+      object-position: center;
+      transform: none !important; // remove o zoom para performance
+    }
+
+    // Overlay mais forte (para texto legível)
+    .carousel-item::after {
+
+    }
+
+    // Mostra o texto e CTA sempre visíveis (sem hover)
+    .carousel-caption {
+      display: none!important; // inicialmente escondido
+      opacity: 1 !important;
+      transform: translate(-50%, -50%) !important;
+      text-align: center;
+      padding: 1rem;
+
+      h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+        box-shadow: none; // simplifica no mobile
+      }
+    }
+
+    // Remove efeitos de hover (não existem em touch)
+    .carousel-item.active:hover::after,
+    .carousel-item.active:hover .carousel-caption {
+      background: none;
+      opacity: 1;
+    }
   }
 }
-

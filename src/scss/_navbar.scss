@@ -1,10 +1,16 @@
 @use "variables" as v;
 
 .nav__geral {
+  position: fixed; // Mantém fixa no topo
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1300; // Garante que fique sobre o carrossel
   background: linear-gradient(135deg, v.$cor-roxo-escuro, v.$cor-roxo-claro);
   box-shadow: 0 2px 6px v.$cor-sombra;
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
+  padding: 0.6rem 1rem; // leve padding padrão
 
   .navbar-brand {
     font-weight: 700;
@@ -25,7 +31,6 @@
     position: relative;
     transition: all 0.3s ease;
 
-    // Efeito underline suave no hover
     &::after {
       content: "";
       position: absolute;
@@ -47,14 +52,13 @@
 
     &.active {
       color: v.$cor-verde-claro !important;
-
       &::after {
         width: 100%;
       }
     }
   }
 
-  // Menu Dropdown
+  // Dropdown estilizado
   .dropdown-menu {
     background-color: v.$cor-roxo-escuro !important;
     border: none;
@@ -65,8 +69,8 @@
 
     .dropdown-item {
       color: v.$cor-branco !important;
-      transition: background 0.3s ease, color 0.3s ease;
       padding: 0.6rem 1rem;
+      transition: background 0.3s ease, color 0.3s ease;
 
       &:hover {
         background-color: v.$cor-roxo-claro !important;
@@ -89,16 +93,15 @@
     }
   }
 
-  // Efeito de navbar compactando ao rolar
+  // Compacta no scroll
   &.scrolled {
-    
-    box-shadow: 0 4px 12px rgba(v.$cor-preto, 0.25);
     padding: 0.3rem 0 !important;
+    box-shadow: 0 4px 12px rgba(v.$cor-preto, 0.25);
   }
 }
 
 .logo__img {
-  height: 70px; // ajuste conforme proporção da sua logo
+  height: 70px;
   width: auto;
   transition: transform 0.6s ease, filter 0.6s ease;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
@@ -109,14 +112,58 @@
   }
 }
 
-// Quando a navbar estiver compactada (scroll)
+// Quando a navbar estiver compactada
 .nav__geral.scrolled .logo__img {
-  height: 28px;
+  height: 45px;
   transition: height 0.6s ease;
 }
 
+// ======================
+// 📱 MOBILE ADJUSTMENTS
+// ======================
+@media (max-width: 768px) {
+  .nav__geral {
+    height: auto;
+    padding: 0.4rem 0.8rem;
+    text-align: center;
 
+    .navbar-toggler {
+      border: none;
+      outline: none;
+      background: none;
+      filter: brightness(1.1);
+      z-index: 1300; // mantém acima da logo
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1); // deixa o ícone branco se for padrão bootstrap
+    }
+
+    .logo__img {
+      height: 45px; // reduz para caber na barra
+      transform: none;
+      filter: none;
+    }
+
+    .nav-link {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+    }
+
+    .dropdown-menu {
+      text-align: center;
+    }
+  }
+
+  // Evita hover no mobile
+  .nav__geral .nav-link:hover::after {
+    width: 0;
+  }
+}
+
+// ======================
 // Animação de dropdown
+// ======================
 @keyframes fadeIn {
   from {
     opacity: 0;
